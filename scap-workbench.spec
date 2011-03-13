@@ -7,7 +7,7 @@
 Summary: Scanning, tailoring, editing and validation tool for SCAP content
 Name: scap-workbench
 URL: https://fedorahosted.org/scap-workbench/
-Version: 0.2.0
+Version: 0.2.3
 Release: 1%{?dist}
 License: GPLv3+
 Group: System Environment/Base
@@ -15,7 +15,7 @@ Source0: https://fedorahosted.org/released/scap-workbench/%{name}-%{version}.tar
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 BuildArch: noarch
 BuildRequires: python2-devel desktop-file-utils
-Requires: openscap-python >= 0.6.8
+Requires: openscap-python >= 0.7.1
 
 %description
 scap-workbench is GUI tool that provides scanning, tailoring, 
@@ -52,6 +52,20 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/pixmaps/scap-workbench.png
 
 %changelog
+* Fri Mar 11 2011 Maros Barabas <mbarabas@redhat.com> 0.2.3-1
+- Refactoring of editor, more code added to glade files
+- Improved UI, added new classes for editing
+- New handling of values items in editor
+- Better thread handling of concurrent actions
+- Lot of fixes
+- Improved design of GUI
+- Improved notifications and event handling
+- Added OVAL metadata information
+- Lot of small fixes
+- Now possible to close XCCDF file from main page
+- Improved XCCDF editor: added new panel with general options
+- Fixed lot of bugs in edit and command modules
+
 * Mon Jan 31 2011 Maros Barabas <mbarabas@redhat.com> 0.2.0-1
 - Added -D option for debug mode, default logger level set to info
 - Improved Tailoring page: added profile selection and refines tailoring
