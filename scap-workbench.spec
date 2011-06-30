@@ -7,7 +7,7 @@
 Summary: Scanning, tailoring, editing and validation tool for SCAP content
 Name: scap-workbench
 URL: https://fedorahosted.org/scap-workbench/
-Version: 0.3.0
+Version: 0.4.0
 Release: 1%{?dist}
 License: GPLv3+
 Group: System Environment/Base
@@ -32,6 +32,7 @@ is based on OpenSCAP library.
 rm -rf $RPM_BUILD_ROOT
 make install DESTDIR=$RPM_BUILD_ROOT
 desktop-file-validate $RPM_BUILD_ROOT%{_datadir}/applications/scap-workbench.desktop
+desktop-file-validate $RPM_BUILD_ROOT%{_datadir}/applications/scap-workbench-editor.desktop
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -50,9 +51,18 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man8/scap-workbench.8.gz
 %{_mandir}/man8/scap-workbench-editor.8.gz
 %{_datadir}/applications/scap-workbench.desktop
+%{_datadir}/applications/scap-workbench-editor.desktop
 %{_datadir}/pixmaps/scap-workbench.png
 
 %changelog
+* Thu Jun 30 2011 Maros Barabas <xbarry@gmail.com> 0.4.0-1
+- Redesign of abstract classes in editor
+- New dialog module
+- New preview dialog
+- UI improvements
+- Added documentation
+- Fixed bugs
+
 * Fri Apr 29 2011 Maros Barabas <mbarabas@redhat.com> 0.3.0-1
 - Split scanner and editor to two separate parts
 - New import and export dialogs in Editor
