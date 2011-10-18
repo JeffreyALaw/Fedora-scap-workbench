@@ -7,7 +7,7 @@
 Summary: Scanning, tailoring, editing and validation tool for SCAP content
 Name: scap-workbench
 URL: https://fedorahosted.org/scap-workbench/
-Version: 0.4.0
+Version: 0.5.0
 Release: 1%{?dist}
 License: GPLv3+
 Group: System Environment/Base
@@ -55,6 +55,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/pixmaps/scap-workbench.png
 
 %changelog
+* Wed Oct 12 2011 Martin Preisler <mpreisle@redhat.com> 0.5.0-1
+- Commenting, refactoring and code cleanup
+- New uncaught exception dialog
+- Version time editing
+- Fixed bugs
+
 * Thu Jun 30 2011 Maros Barabas <xbarry@gmail.com> 0.4.0-1
 - Redesign of abstract classes in editor
 - New dialog module
@@ -77,11 +83,15 @@ rm -rf $RPM_BUILD_ROOT
 - New handling of values items in editor
 - Better thread handling of concurrent actions
 - Lot of fixes
+
+* Fri Feb 18 2011 Maros Barabas <mbarabas@redhat.com> 0.2.2-1
 - Improved design of GUI
 - Improved notifications and event handling
 - Added OVAL metadata information
 - Lot of small fixes
 - Now possible to close XCCDF file from main page
+
+* Fri Feb 11 2011 Maros Barabas <mbarabas@redhat.com> 0.2.1-1
 - Improved XCCDF editor: added new panel with general options
 - Fixed lot of bugs in edit and command modules
 
