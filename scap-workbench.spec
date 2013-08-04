@@ -5,7 +5,7 @@
 
 Name:		%{?scl_prefix}scap-workbench
 Version:	0.8.0
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Scanning, tailoring, editing and validation tool for SCAP content
 
 License:	GPLv3+
@@ -47,5 +47,8 @@ make install DESTDIR=%{buildroot}
 %{_datadir}/pixmaps/scap-workbench.png
 
 %changelog
+* Sun Aug 04 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.8.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_20_Mass_Rebuild
+
 * Thu Jul 04 2013 Martin Preisler <mpreisle@redhat.com> 0.8.0-1
 - Initial release of the rewritten workbench
