@@ -4,8 +4,8 @@
 %{?scl:%global _scl_prefix /opt/scap-testing}
 
 Name:		%{?scl_prefix}scap-workbench
-Version:	0.8.0
-Release:	2%{?dist}
+Version:	0.8.1
+Release:	1%{?dist}
 Summary:	Scanning, tailoring, editing and validation tool for SCAP content
 
 License:	GPLv3+
@@ -17,10 +17,9 @@ BuildRequires:	cmake
 BuildRequires:	qt-devel
 BuildRequires:	qtwebkit-devel
 
-# --progress was added in 0.9.5
-BuildRequires:	%{?scl_prefix}openscap-devel >= 0.9.5
-BuildRequires:	%{?scl_prefix}openscap-utils >= 0.9.5
-Requires:		%{?scl_prefix}openscap-utils >= 0.9.5
+BuildRequires:	%{?scl_prefix}openscap-devel >= 0.9.12
+BuildRequires:	%{?scl_prefix}openscap-utils >= 0.9.12
+Requires:		%{?scl_prefix}openscap-utils >= 0.9.12
 # ssh to scan remote machines
 Requires:		openssh-clients
 # because of 'setsid' which we use to force ssh to use GUI askpass
@@ -44,9 +43,13 @@ make install DESTDIR=%{buildroot}
 %files
 %{_bindir}/scap-workbench
 %{_mandir}/man8/scap-workbench.8.gz
+%{_datadir}/applications/scap-workbench.desktop
 %{_datadir}/pixmaps/scap-workbench.png
 
 %changelog
+* Fri Sep 20 2013 Martin Preisler <mpreisle@redhat.com> 0.8.1-1
+- Updated to new version
+
 * Sun Aug 04 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.8.0-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_20_Mass_Rebuild
 
