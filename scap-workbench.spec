@@ -4,7 +4,7 @@
 %{?scl:%global _scl_prefix /opt/scap-testing}
 
 Name:		%{?scl_prefix}scap-workbench
-Version:	0.8.1
+Version:	0.8.2
 Release:	1%{?dist}
 Summary:	Scanning, tailoring, editing and validation tool for SCAP content
 
@@ -34,7 +34,7 @@ content. The tool is based on OpenSCAP library.
 %setup -q -n %{pkg_name}-%{version}
 
 %build
-%cmake .
+%cmake -D OPENSCAP_INCLUDE_DIRS=/usr/include/openscap -D OPENSCAP_LIBRARIES=libopenscap.so .
 make %{?_smp_mflags}
 
 %install
@@ -47,6 +47,10 @@ make install DESTDIR=%{buildroot}
 %{_datadir}/pixmaps/scap-workbench.png
 
 %changelog
+* Wed Oct 30 2013 Martin Preisler <mpreisle@redhat.com> 0.8.2-1
+- Updated to new version
+- Added a workaround to the cmake invocation because of faulty openscap .pc file
+
 * Fri Sep 20 2013 Martin Preisler <mpreisle@redhat.com> 0.8.1-1
 - Updated to new version
 
