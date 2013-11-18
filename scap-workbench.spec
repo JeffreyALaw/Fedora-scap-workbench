@@ -5,7 +5,7 @@
 
 Name:		%{?scl_prefix}scap-workbench
 Version:	0.8.2
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Scanning, tailoring, editing and validation tool for SCAP content
 
 License:	GPLv3+
@@ -17,9 +17,9 @@ BuildRequires:	cmake
 BuildRequires:	qt-devel
 BuildRequires:	qtwebkit-devel
 
-BuildRequires:	%{?scl_prefix}openscap-devel >= 0.9.12
-BuildRequires:	%{?scl_prefix}openscap-utils >= 0.9.12
-Requires:		%{?scl_prefix}openscap-utils >= 0.9.12
+BuildRequires:	%{?scl_prefix}openscap-devel >= 0.9.13
+BuildRequires:	%{?scl_prefix}openscap-utils >= 0.9.13
+Requires:		%{?scl_prefix}openscap-utils >= 0.9.13
 # ssh to scan remote machines
 Requires:		openssh-clients
 # because of 'setsid' which we use to force ssh to use GUI askpass
@@ -34,7 +34,7 @@ content. The tool is based on OpenSCAP library.
 %setup -q -n %{pkg_name}-%{version}
 
 %build
-%cmake -D OPENSCAP_INCLUDE_DIRS=/usr/include/openscap -D OPENSCAP_LIBRARIES=libopenscap.so .
+%cmake .
 make %{?_smp_mflags}
 
 %install
@@ -47,6 +47,9 @@ make install DESTDIR=%{buildroot}
 %{_datadir}/pixmaps/scap-workbench.png
 
 %changelog
+* Mon Nov 18 2013 Martin Preisler <mpreisle@redhat.com> 0.8.2-2
+- Removed the openscap detection workaround, it is no longer needed with openscap 0.9.13
+
 * Wed Oct 30 2013 Martin Preisler <mpreisle@redhat.com> 0.8.2-1
 - Updated to new version
 - Added a workaround to the cmake invocation because of faulty openscap .pc file
