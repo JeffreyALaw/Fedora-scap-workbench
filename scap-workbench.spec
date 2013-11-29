@@ -3,9 +3,11 @@
 
 %{?scl:%global _scl_prefix /opt/scap-testing}
 
+%{!?_pkgdocdir: %global _pkgdocdir %{_docdir}/%{name}-%{version}}
+
 Name:		%{?scl_prefix}scap-workbench
-Version:	0.8.2
-Release:	2%{?dist}
+Version:	0.8.3
+Release:	1%{?dist}
 Summary:	Scanning, tailoring, editing and validation tool for SCAP content
 
 License:	GPLv3+
@@ -34,7 +36,7 @@ content. The tool is based on OpenSCAP library.
 %setup -q -n %{pkg_name}-%{version}
 
 %build
-%cmake .
+%cmake -D CMAKE_INSTALL_DOCDIR=%{_pkgdocdir} .
 make %{?_smp_mflags}
 
 %install
@@ -42,11 +44,16 @@ make install DESTDIR=%{buildroot}
 
 %files
 %{_bindir}/scap-workbench
-%{_mandir}/man8/scap-workbench.8.gz
 %{_datadir}/applications/scap-workbench.desktop
 %{_datadir}/pixmaps/scap-workbench.png
+%doc %{_mandir}/man8/scap-workbench.8.gz
+%doc %{_pkgdocdir}/user_manual.html
 
 %changelog
+* Fri Nov 29 2013 Martin Preisler <mpreisle@redhat.com> 0.8.3-1
+- Updated to new version
+- Added measures to deal with unversioned pkgdocdir in Fedora 20+
+
 * Mon Nov 18 2013 Martin Preisler <mpreisle@redhat.com> 0.8.2-2
 - Removed the openscap detection workaround, it is no longer needed with openscap 0.9.13
 
