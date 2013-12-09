@@ -6,7 +6,7 @@
 %{!?_pkgdocdir: %global _pkgdocdir %{_docdir}/%{name}-%{version}}
 
 Name:		%{?scl_prefix}scap-workbench
-Version:	0.8.3
+Version:	0.8.4
 Release:	1%{?dist}
 Summary:	Scanning, tailoring, editing and validation tool for SCAP content
 
@@ -50,6 +50,9 @@ make install DESTDIR=%{buildroot}
 %doc %{_pkgdocdir}/user_manual.html
 
 %changelog
+* Mon Dec 09 2013 Martin Preisler <mpreisle@redhat.com> 0.8.4-1
+- Updated to new version
+
 * Fri Nov 29 2013 Martin Preisler <mpreisle@redhat.com> 0.8.3-1
 - Updated to new version
 - Added measures to deal with unversioned pkgdocdir in Fedora 20+
