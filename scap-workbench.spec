@@ -7,7 +7,7 @@
 
 Name:		%{?scl_prefix}scap-workbench
 Version:	0.8.5
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Scanning, tailoring, editing and validation tool for SCAP content
 
 License:	GPLv3+
@@ -24,6 +24,7 @@ BuildRequires:	%{?scl_prefix}openscap-utils >= 0.9.13
 Requires:		%{?scl_prefix}openscap-utils >= 0.9.13
 # ssh to scan remote machines
 Requires:		openssh-clients
+Requires:		openssh-askpass
 # because of 'setsid' which we use to force ssh to use GUI askpass
 Requires:		util-linux
 %{?scl:Requires: %scl_runtime}
@@ -50,6 +51,9 @@ make install DESTDIR=%{buildroot}
 %doc %{_pkgdocdir}/user_manual.html
 
 %changelog
+* Mon Jan 20 2014 Martin Preisler <mpreisle@redhat.com> 0.8.5-2
+- Require openssh-askpass for GUI openssh challenge responses
+
 * Fri Jan 10 2014 Martin Preisler <mpreisle@redhat.com> 0.8.5-1
 - Updated to new version
 
