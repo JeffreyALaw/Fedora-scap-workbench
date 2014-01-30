@@ -6,8 +6,8 @@
 %{!?_pkgdocdir: %global _pkgdocdir %{_docdir}/%{name}-%{version}}
 
 Name:		%{?scl_prefix}scap-workbench
-Version:	0.8.5
-Release:	2%{?dist}
+Version:	0.8.6
+Release:	1%{?dist}
 Summary:	Scanning, tailoring, editing and validation tool for SCAP content
 
 License:	GPLv3+
@@ -27,6 +27,8 @@ Requires:		openssh-clients
 Requires:		openssh-askpass
 # because of 'setsid' which we use to force ssh to use GUI askpass
 Requires:		util-linux
+# for privileged local scanning
+Requires:		polkit
 %{?scl:Requires: %scl_runtime}
 
 %description
@@ -46,11 +48,18 @@ make install DESTDIR=%{buildroot}
 %files
 %{_bindir}/scap-workbench
 %{_datadir}/applications/scap-workbench.desktop
+%{_libexecdir}/scap-workbench-oscap.sh
+%{_libexecdir}/scap-workbench-pkexec-oscap.sh
+%{_datadir}/polkit-1/actions/scap-workbench-oscap.policy
 %{_datadir}/pixmaps/scap-workbench.png
 %doc %{_mandir}/man8/scap-workbench.8.gz
 %doc %{_pkgdocdir}/user_manual.html
 
 %changelog
+* Thu Jan 30 2014 Martin Preisler <mpreisle@redhat.com> 0.8.6-1
+- Updated to new version
+- Require polkit
+
 * Mon Jan 20 2014 Martin Preisler <mpreisle@redhat.com> 0.8.5-2
 - Require openssh-askpass for GUI openssh challenge responses
 
