@@ -6,7 +6,7 @@
 %{!?_pkgdocdir: %global _pkgdocdir %{_docdir}/%{name}-%{version}}
 
 Name:		%{?scl_prefix}scap-workbench
-Version:	0.8.6
+Version:	0.8.7
 Release:	1%{?dist}
 Summary:	Scanning, tailoring, editing and validation tool for SCAP content
 
@@ -19,9 +19,9 @@ BuildRequires:	cmake
 BuildRequires:	qt-devel
 BuildRequires:	qtwebkit-devel
 
-BuildRequires:	%{?scl_prefix}openscap-devel >= 0.9.13
-BuildRequires:	%{?scl_prefix}openscap-utils >= 0.9.13
-Requires:		%{?scl_prefix}openscap-utils >= 0.9.13
+BuildRequires:	%{?scl_prefix}openscap-devel >= 1.0.4
+BuildRequires:	%{?scl_prefix}openscap-utils >= 1.0.4
+Requires:		%{?scl_prefix}openscap-utils >= 1.0.4
 # ssh to scan remote machines
 Requires:		openssh-clients
 Requires:		openssh-askpass
@@ -56,6 +56,9 @@ make install DESTDIR=%{buildroot}
 %doc %{_pkgdocdir}/user_manual.html
 
 %changelog
+* Wed Feb 19 2014 Martin Preisler <mpreisle@redhat.com> 0.8.7-1
+- Updated to new version
+
 * Thu Jan 30 2014 Martin Preisler <mpreisle@redhat.com> 0.8.6-1
 - Updated to new version
 - Require polkit
