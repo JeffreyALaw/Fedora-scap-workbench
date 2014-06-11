@@ -6,8 +6,8 @@
 %{!?_pkgdocdir: %global _pkgdocdir %{_docdir}/%{name}-%{version}}
 
 Name:		%{?scl_prefix}scap-workbench
-Version:	0.8.8
-Release:	2%{?dist}
+Version:	0.8.9
+Release:	1%{?dist}
 Summary:	Scanning, tailoring, editing and validation tool for SCAP content
 
 License:	GPLv3+
@@ -52,10 +52,15 @@ make install DESTDIR=%{buildroot}
 %{_libexecdir}/scap-workbench-pkexec-oscap.sh
 %{_datadir}/polkit-1/actions/scap-workbench-oscap.policy
 %{_datadir}/pixmaps/scap-workbench.png
+%{_datadir}/appdata/scap-workbench.appdata.xml
 %doc %{_mandir}/man8/scap-workbench.8.gz
 %doc %{_pkgdocdir}/user_manual.html
 
 %changelog
+* Tue Jun 10 2014 Martin Preisler <mpreisle@redhat.com> 0.8.9-1
+- Updated to new version
+- appdata is now available
+
 * Sun Jun 08 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.8.8-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_21_Mass_Rebuild
 
