@@ -6,7 +6,7 @@
 %{!?_pkgdocdir: %global _pkgdocdir %{_docdir}/%{name}-%{version}}
 
 Name:		%{?scl_prefix}scap-workbench
-Version:	0.8.9
+Version:	1.0.0
 Release:	1%{?dist}
 Summary:	Scanning, tailoring, editing and validation tool for SCAP content
 
@@ -19,9 +19,9 @@ BuildRequires:	cmake
 BuildRequires:	qt-devel
 BuildRequires:	qtwebkit-devel
 
-BuildRequires:	%{?scl_prefix}openscap-devel >= 1.0.5
-BuildRequires:	%{?scl_prefix}openscap-utils >= 1.0.5
-Requires:		%{?scl_prefix}openscap-utils >= 1.0.5
+BuildRequires:	%{?scl_prefix}openscap-devel >= 1.0.9
+BuildRequires:	%{?scl_prefix}openscap-utils >= 1.0.9
+Requires:		%{?scl_prefix}openscap-utils >= 1.0.9
 # ssh to scan remote machines
 Requires:		openssh-clients
 Requires:		openssh-askpass
@@ -48,15 +48,22 @@ make install DESTDIR=%{buildroot}
 %files
 %{_bindir}/scap-workbench
 %{_datadir}/applications/scap-workbench.desktop
+%{_datadir}/scap-workbench/*.png
+%{_datadir}/scap-workbench/translations/*
 %{_libexecdir}/scap-workbench-oscap.sh
 %{_libexecdir}/scap-workbench-pkexec-oscap.sh
+%{_libexecdir}/scap-workbench-rpm-extract.sh
 %{_datadir}/polkit-1/actions/scap-workbench-oscap.policy
 %{_datadir}/pixmaps/scap-workbench.png
+%{_datadir}/pixmaps/scap-workbench.svg
 %{_datadir}/appdata/scap-workbench.appdata.xml
 %doc %{_mandir}/man8/scap-workbench.8.gz
 %doc %{_pkgdocdir}/user_manual.html
 
 %changelog
+* Fri Jun 27 2014 Martin Preisler <mpreisle@redhat.com> 1.0.0-1
+- Updated to new version
+
 * Tue Jun 10 2014 Martin Preisler <mpreisle@redhat.com> 0.8.9-1
 - Updated to new version
 - appdata is now available
