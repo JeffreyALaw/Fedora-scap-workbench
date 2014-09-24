@@ -6,7 +6,7 @@
 %{!?_pkgdocdir: %global _pkgdocdir %{_docdir}/%{name}-%{version}}
 
 Name:		%{?scl_prefix}scap-workbench
-Version:	1.0.1
+Version:	1.0.2
 Release:	1%{?dist}
 Summary:	Scanning, tailoring, editing and validation tool for SCAP content
 
@@ -61,6 +61,9 @@ make install DESTDIR=%{buildroot}
 %doc %{_pkgdocdir}/user_manual.html
 
 %changelog
+* Wed Sep 24 2014 Martin Preisler <mpreisle@redhat.com> 1.0.2-1
+- Updated to new upstream release 1.0.2
+
 * Fri Sep 05 2014 Martin Preisler <mpreisle@redhat.com> 1.0.1-1
 - Updated to new upstream release 1.0.1
 
