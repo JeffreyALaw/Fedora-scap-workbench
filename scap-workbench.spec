@@ -7,12 +7,14 @@
 
 Name:		%{?scl_prefix}scap-workbench
 Version:	1.0.2
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Scanning, tailoring, editing and validation tool for SCAP content
 
 License:	GPLv3+
 URL:		https://fedorahosted.org/scap-workbench/
 Source0:	https://fedorahosted.org/released/scap-workbench/%{pkg_name}-%{version}.tar.bz2
+# upstreamed, can be removed with rebase to 1.0.3
+Patch0: 	scap-workbench-1.0.2-rpm-open.patch
 Group:		System Environment/Base
 
 BuildRequires:	cmake
@@ -37,6 +39,7 @@ content. The tool is based on OpenSCAP library.
 
 %prep
 %setup -q -n %{pkg_name}-%{version}
+%patch0 -p1
 
 %build
 %cmake -D CMAKE_INSTALL_DOCDIR=%{_pkgdocdir} .
@@ -61,6 +64,9 @@ make install DESTDIR=%{buildroot}
 %doc %{_pkgdocdir}/user_manual.html
 
 %changelog
+* Thu Oct 30 2014 Martin Preisler <mpreisle@redhat.com> 1.0.2-2
+- Fix RPM open functionality, see rhbz#1154039
+
 * Wed Sep 24 2014 Martin Preisler <mpreisle@redhat.com> 1.0.2-1
 - Updated to new upstream release 1.0.2
 
