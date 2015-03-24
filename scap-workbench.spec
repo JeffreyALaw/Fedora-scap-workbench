@@ -6,7 +6,7 @@
 %{!?_pkgdocdir: %global _pkgdocdir %{_docdir}/%{name}-%{version}}
 
 Name:		%{?scl_prefix}scap-workbench
-Version:	1.0.3
+Version:	1.1.0
 Release:	1%{?dist}
 Summary:	Scanning, tailoring, editing and validation tool for SCAP content
 
@@ -17,19 +17,22 @@ Group:		System Environment/Base
 
 BuildRequires:	cmake
 BuildRequires:	qt-devel
-BuildRequires:	qtwebkit-devel
 
-BuildRequires:	%{?scl_prefix}openscap-devel >= 1.0.9
-BuildRequires:	%{?scl_prefix}openscap-utils >= 1.0.9
-Requires:		%{?scl_prefix}openscap-utils >= 1.0.9
+BuildRequires:	%{?scl_prefix}openscap-devel >= 1.2.0
+BuildRequires:	%{?scl_prefix}openscap-utils >= 1.2.0
+Requires:		%{?scl_prefix}openscap-utils >= 1.2.0
 # ssh to scan remote machines
+BuildRequires:	openssh-clients
 Requires:		openssh-clients
 Requires:		openssh-askpass
 # because of 'setsid' which we use to force ssh to use GUI askpass
+BuildRequires:	util-linux
 Requires:		util-linux
 # for privileged local scanning
 Requires:		polkit
 %{?scl:Requires: %scl_runtime}
+# default content
+Requires:		scap-security-guide
 
 %description
 scap-workbench is GUI tool that provides scanning functionality for SCAP
@@ -61,6 +64,12 @@ make install DESTDIR=%{buildroot}
 %doc %{_pkgdocdir}/user_manual.html
 
 %changelog
+* Tue Mar 24 2015 Martin Preisler <mpreisle@redhat.com> 1.1.0-1
+- Updated to new upstream release 1.1.0
+- Added openssh-clients and util-linux to BuildRequires, workbench checks those
+  at configure time now
+- Added scap-security-guide to Requires
+
 * Fri Jan 09 2015 Martin Preisler <mpreisle@redhat.com> 1.0.3-1
 - Updated to new upstream release 1.0.3
 
