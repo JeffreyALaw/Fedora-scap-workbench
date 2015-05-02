@@ -7,7 +7,7 @@
 
 Name:		%{?scl_prefix}scap-workbench
 Version:	1.1.0
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Scanning, tailoring, editing and validation tool for SCAP content
 
 License:	GPLv3+
@@ -64,6 +64,9 @@ make install DESTDIR=%{buildroot}
 %doc %{_pkgdocdir}/user_manual.html
 
 %changelog
+* Sat May 02 2015 Kalev Lember <kalevlember@gmail.com> - 1.1.0-2
+- Rebuilt for GCC 5 C++11 ABI change
+
 * Tue Mar 24 2015 Martin Preisler <mpreisle@redhat.com> 1.1.0-1
 - Updated to new upstream release 1.1.0
 - Added openssh-clients and util-linux to BuildRequires, workbench checks those
