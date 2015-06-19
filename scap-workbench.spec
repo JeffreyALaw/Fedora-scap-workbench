@@ -7,7 +7,7 @@
 
 Name:		%{?scl_prefix}scap-workbench
 Version:	1.1.0
-Release:	2%{?dist}
+Release:	3%{?dist}
 Summary:	Scanning, tailoring, editing and validation tool for SCAP content
 
 License:	GPLv3+
@@ -64,6 +64,9 @@ make install DESTDIR=%{buildroot}
 %doc %{_pkgdocdir}/user_manual.html
 
 %changelog
+* Fri Jun 19 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.1.0-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
+
 * Sat May 02 2015 Kalev Lember <kalevlember@gmail.com> - 1.1.0-2
 - Rebuilt for GCC 5 C++11 ABI change
 
