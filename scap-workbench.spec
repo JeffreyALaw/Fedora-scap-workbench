@@ -7,7 +7,7 @@
 
 Name:		%{?scl_prefix}scap-workbench
 Version:	1.1.0
-Release:	3%{?dist}
+Release:	4%{?dist}
 Summary:	Scanning, tailoring, editing and validation tool for SCAP content
 
 License:	GPLv3+
@@ -15,8 +15,8 @@ URL:		https://fedorahosted.org/scap-workbench/
 Source0:	https://fedorahosted.org/released/scap-workbench/%{pkg_name}-%{version}.tar.bz2
 Group:		System Environment/Base
 
-BuildRequires:	cmake
-BuildRequires:	qt-devel
+BuildRequires:	cmake >= 2.6
+BuildRequires:	qt-devel >= 4.0.0
 
 BuildRequires:	%{?scl_prefix}openscap-devel >= 1.2.0
 BuildRequires:	%{?scl_prefix}openscap-utils >= 1.2.0
@@ -64,6 +64,9 @@ make install DESTDIR=%{buildroot}
 %doc %{_pkgdocdir}/user_manual.html
 
 %changelog
+* Wed Jul 29 2015 Martin Preisler <mpreisle@redhat.com> 1.1.0-4
+- Make BuildRequires more explicit by requiring qt >= 4.0.0 and cmake >= 2.6
+
 * Fri Jun 19 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.1.0-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
 
