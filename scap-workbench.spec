@@ -6,8 +6,8 @@
 %{!?_pkgdocdir: %global _pkgdocdir %{_docdir}/%{name}-%{version}}
 
 Name:		%{?scl_prefix}scap-workbench
-Version:	1.1.0
-Release:	4%{?dist}
+Version:	1.1.1
+Release:	1%{?dist}
 Summary:	Scanning, tailoring, editing and validation tool for SCAP content
 
 License:	GPLv3+
@@ -64,6 +64,9 @@ make install DESTDIR=%{buildroot}
 %doc %{_pkgdocdir}/user_manual.html
 
 %changelog
+* Tue Sep 29 2015 Martin Preisler <mpreisle@redhat.com> 1.1.1-1
+- Updated to new upstream release 1.1.1-1
+
 * Wed Jul 29 2015 Martin Preisler <mpreisle@redhat.com> 1.1.0-4
 - Make BuildRequires more explicit by requiring qt >= 4.0.0 and cmake >= 2.6
 
