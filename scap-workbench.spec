@@ -5,34 +5,37 @@
 
 %{!?_pkgdocdir: %global _pkgdocdir %{_docdir}/%{name}-%{version}}
 
-Name:		%{?scl_prefix}scap-workbench
-Version:	1.1.1
-Release:	1%{?dist}
-Summary:	Scanning, tailoring, editing and validation tool for SCAP content
+Name:       %{?scl_prefix}scap-workbench
+Version:    1.1.1
+Release:    2%{?dist}
+Summary:    Scanning, tailoring, editing and validation tool for SCAP content
 
-License:	GPLv3+
-URL:		https://fedorahosted.org/scap-workbench/
-Source0:	https://fedorahosted.org/released/scap-workbench/%{pkg_name}-%{version}.tar.bz2
-Group:		System Environment/Base
+License:    GPLv3+
+URL:        http://www.open-scap.org/tools/scap-workbench
+Source0:    https://github.com/OpenSCAP/scap-workbench/releases/download/%{version}/scap-workbench-%{version}.tar.bz2
+Group:      System Environment/Base
 
-BuildRequires:	cmake >= 2.6
-BuildRequires:	qt-devel >= 4.0.0
+BuildRequires:  cmake >= 2.6
+BuildRequires:  qt-devel >= 4.0.0
 
-BuildRequires:	%{?scl_prefix}openscap-devel >= 1.2.0
-BuildRequires:	%{?scl_prefix}openscap-utils >= 1.2.0
-Requires:		%{?scl_prefix}openscap-utils >= 1.2.0
+BuildRequires:  %{?scl_prefix}openscap-devel >= 1.2.0
+BuildRequires:  %{?scl_prefix}openscap-utils >= 1.2.0
+Requires:       %{?scl_prefix}openscap-utils >= 1.2.0
 # ssh to scan remote machines
-BuildRequires:	openssh-clients
-Requires:		openssh-clients
-Requires:		openssh-askpass
+BuildRequires:  openssh-clients
+Requires:       openssh-clients
+Requires:       openssh-askpass
 # because of 'setsid' which we use to force ssh to use GUI askpass
-BuildRequires:	util-linux
-Requires:		util-linux
+BuildRequires:  util-linux
+Requires:       util-linux
 # for privileged local scanning
-Requires:		polkit
-%{?scl:Requires: %scl_runtime}
+Requires:       polkit
 # default content
-Requires:		scap-security-guide
+Requires:       scap-security-guide
+# fonts, see https://bugzilla.redhat.com/show_bug.cgi?id=1134418
+Requires:       font(:lang=en)
+
+%{?scl:Requires: %scl_runtime}
 
 %description
 scap-workbench is GUI tool that provides scanning functionality for SCAP
@@ -64,6 +67,11 @@ make install DESTDIR=%{buildroot}
 %doc %{_pkgdocdir}/user_manual.html
 
 %changelog
+* Mon Nov 02 2015 Martin Preisler <mpreisle@redhat.com> 1.1.1-2
+- Require English fonts (bz#1134418)
+- Updated with latest upstream URLs
+- Reorganized the spec a little
+
 * Tue Sep 29 2015 Martin Preisler <mpreisle@redhat.com> 1.1.1-1
 - Updated to new upstream release 1.1.1-1
 
