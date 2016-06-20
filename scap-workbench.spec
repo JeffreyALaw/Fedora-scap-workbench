@@ -1,13 +1,8 @@
-%{?scl:%scl_package scap-workbench}
-%{!?scl:%global pkg_name scap-workbench}
-
-%{?scl:%global _scl_prefix /opt/scap-testing}
-
 %{!?_pkgdocdir: %global _pkgdocdir %{_docdir}/%{name}-%{version}}
 
-Name:       %{?scl_prefix}scap-workbench
-Version:    1.1.1
-Release:    3%{?dist}
+Name:       scap-workbench
+Version:    1.1.2
+Release:    1%{?dist}
 Summary:    Scanning, tailoring, editing and validation tool for SCAP content
 
 License:    GPLv3+
@@ -18,9 +13,9 @@ Group:      System Environment/Base
 BuildRequires:  cmake >= 2.6
 BuildRequires:  qt-devel >= 4.0.0
 
-BuildRequires:  %{?scl_prefix}openscap-devel >= 1.2.0
-BuildRequires:  %{?scl_prefix}openscap-utils >= 1.2.0
-Requires:       %{?scl_prefix}openscap-utils >= 1.2.0
+BuildRequires:  openscap-devel >= 1.2.0
+BuildRequires:  openscap-utils >= 1.2.0
+Requires:       openscap-utils >= 1.2.0
 # ssh to scan remote machines
 BuildRequires:  openssh-clients
 Requires:       openssh-clients
@@ -35,14 +30,12 @@ Requires:       scap-security-guide
 # fonts, see https://bugzilla.redhat.com/show_bug.cgi?id=1134418
 Requires:       font(:lang=en)
 
-%{?scl:Requires: %scl_runtime}
-
 %description
 scap-workbench is GUI tool that provides scanning functionality for SCAP
 content. The tool is based on OpenSCAP library.
 
 %prep
-%setup -q -n %{pkg_name}-%{version}
+%setup -q
 
 %build
 %cmake -D CMAKE_INSTALL_DOCDIR=%{_pkgdocdir} .
@@ -67,6 +60,10 @@ make install DESTDIR=%{buildroot}
 %doc %{_pkgdocdir}/user_manual.html
 
 %changelog
+* Mon Jun 20 2016 Martin Preisler <mpreisle@redhat.com> 1.1.2-1
+- Updated to new upstream release 1.1.2
+- Removed SCL related bits
+
 * Thu Feb 04 2016 Fedora Release Engineering <releng@fedoraproject.org> - 1.1.1-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
 
