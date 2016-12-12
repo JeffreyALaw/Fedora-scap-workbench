@@ -1,7 +1,7 @@
 %{!?_pkgdocdir: %global _pkgdocdir %{_docdir}/%{name}-%{version}}
 
 Name:       scap-workbench
-Version:    1.1.2
+Version:    1.1.3
 Release:    1%{?dist}
 Summary:    Scanning, tailoring, editing and validation tool for SCAP content
 
@@ -13,9 +13,9 @@ Group:      System Environment/Base
 BuildRequires:  cmake >= 2.6
 BuildRequires:  qt-devel >= 4.0.0
 
-BuildRequires:  openscap-devel >= 1.2.0
-BuildRequires:  openscap-utils >= 1.2.0
-Requires:       openscap-utils >= 1.2.0
+BuildRequires:  openscap-devel >= 1.2.11
+BuildRequires:  openscap-utils >= 1.2.11
+Requires:       openscap-utils >= 1.2.11
 # ssh to scan remote machines
 BuildRequires:  openssh-clients
 Requires:       openssh-clients
@@ -58,8 +58,14 @@ make install DESTDIR=%{buildroot}
 %{_datadir}/appdata/scap-workbench.appdata.xml
 %doc %{_mandir}/man8/scap-workbench.8.gz
 %doc %{_pkgdocdir}/user_manual.html
+%doc %{_pkgdocdir}/COPYING
+%doc %{_pkgdocdir}/README.md
 
 %changelog
+* Mon Dec 12 2016 Martin Preisler <mpreisle@redhat.com> 1.1.3-1
+- Updated to new upstream release 1.1.3
+- Bumped openscap requirement to 1.2.11 because of the remote resource warning
+
 * Mon Jun 20 2016 Martin Preisler <mpreisle@redhat.com> 1.1.2-1
 - Updated to new upstream release 1.1.2
 - Removed SCL related bits
