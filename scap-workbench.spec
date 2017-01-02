@@ -1,7 +1,7 @@
 %{!?_pkgdocdir: %global _pkgdocdir %{_docdir}/%{name}-%{version}}
 
 Name:       scap-workbench
-Version:    1.1.3
+Version:    1.1.4
 Release:    1%{?dist}
 Summary:    Scanning, tailoring, editing and validation tool for SCAP content
 
@@ -62,6 +62,9 @@ make install DESTDIR=%{buildroot}
 %doc %{_pkgdocdir}/README.md
 
 %changelog
+* Mon Jan 02 2016 Martin Preisler <mpreisle@redhat.com> 1.1.4-1
+- Updated to new upstream release 1.1.4
+
 * Mon Dec 12 2016 Martin Preisler <mpreisle@redhat.com> 1.1.3-1
 - Updated to new upstream release 1.1.3
 - Bumped openscap requirement to 1.2.11 because of the remote resource warning
