@@ -62,7 +62,7 @@ make install DESTDIR=%{buildroot}
 %doc %{_pkgdocdir}/README.md
 
 %changelog
-* Mon Jan 02 2016 Martin Preisler <mpreisle@redhat.com> 1.1.4-1
+* Mon Jan 02 2017 Martin Preisler <mpreisle@redhat.com> 1.1.4-1
 - Updated to new upstream release 1.1.4
 
 * Mon Dec 12 2016 Martin Preisler <mpreisle@redhat.com> 1.1.3-1
