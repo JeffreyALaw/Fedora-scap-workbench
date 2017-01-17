@@ -2,7 +2,7 @@
 
 Name:       scap-workbench
 Version:    1.1.4
-Release:    1%{?dist}
+Release:    2%{?dist}
 Summary:    Scanning, tailoring, editing and validation tool for SCAP content
 
 License:    GPLv3+
@@ -62,6 +62,9 @@ make install DESTDIR=%{buildroot}
 %doc %{_pkgdocdir}/README.md
 
 %changelog
+* Tue Jan 17 2017 Martin Preisler <mpreisle@redhat.com> - 1.1.4-2
+- Rebuilt for OpenSCAP 1.2.13
+
 * Mon Jan 02 2017 Martin Preisler <mpreisle@redhat.com> 1.1.4-1
 - Updated to new upstream release 1.1.4
 
