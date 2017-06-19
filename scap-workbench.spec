@@ -1,8 +1,8 @@
 %{!?_pkgdocdir: %global _pkgdocdir %{_docdir}/%{name}-%{version}}
 
 Name:       scap-workbench
-Version:    1.1.4
-Release:    3%{?dist}
+Version:    1.1.5
+Release:    1%{?dist}
 Summary:    Scanning, tailoring, editing and validation tool for SCAP content
 
 License:    GPLv3+
@@ -62,6 +62,9 @@ make install DESTDIR=%{buildroot}
 %doc %{_pkgdocdir}/README.md
 
 %changelog
+* Mon Jun 19 2017 Martin Preisler <mpreisle@redhat.com> 1.1.5-1
+- Updated to new upstream release 1.1.5
+
 * Sat Feb 11 2017 Fedora Release Engineering <releng@fedoraproject.org> - 1.1.4-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
 
