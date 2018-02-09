@@ -2,7 +2,7 @@
 
 Name:       scap-workbench
 Version:    1.1.6
-Release:    1%{?dist}
+Release:    2%{?dist}
 Summary:    Scanning, tailoring, editing and validation tool for SCAP content
 
 License:    GPLv3+
@@ -62,6 +62,9 @@ make install DESTDIR=%{buildroot}
 %doc %{_pkgdocdir}/README.md
 
 %changelog
+* Fri Feb 09 2018 Fedora Release Engineering <releng@fedoraproject.org> - 1.1.6-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
+
 * Fri Nov 10 2017 Martin Preisler <mpreisle@redhat.com> 1.1.6-1
 - Updated to new upstream release 1.1.6
 
