@@ -66,7 +66,6 @@ make install DESTDIR=%{buildroot}
 - Updated to new upstream release 1.2.0
 - Now using Qt5
 
-- Updated to new upstream release 1.1.6
 * Sat Jul 14 2018 Fedora Release Engineering <releng@fedoraproject.org> - 1.1.6-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
 
