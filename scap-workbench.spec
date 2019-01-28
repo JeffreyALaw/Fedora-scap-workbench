@@ -8,7 +8,6 @@ Summary:    Scanning, tailoring, editing and validation tool for SCAP content
 License:    GPLv3+
 URL:        http://www.open-scap.org/tools/scap-workbench
 Source0:    https://github.com/OpenSCAP/scap-workbench/releases/download/%{version}/scap-workbench-%{version}.tar.bz2
-Group:      System Environment/Base
 
 BuildRequires:  cmake >= 2.6
 BuildRequires:  qt5-devel >= 5.0.0
