@@ -2,7 +2,7 @@
 
 Name:       scap-workbench
 Version:    1.2.0
-Release:    3%{?dist}
+Release:    4%{?dist}
 Summary:    Scanning, tailoring, editing and validation tool for SCAP content
 
 License:    GPLv3+
@@ -11,6 +11,8 @@ Source0:    https://github.com/OpenSCAP/scap-workbench/releases/download/%{versi
 
 BuildRequires:  cmake >= 2.6
 BuildRequires:  qt5-devel >= 5.0.0
+# Although releases usually contain compiled docs, builds from source via Packit need to generate those.
+BuildRequires:  asciidoc
 
 BuildRequires:  openscap-devel >= 1.2.11
 BuildRequires:  openscap-utils >= 1.2.11
@@ -61,6 +63,9 @@ make install DESTDIR=%{buildroot}
 %doc %{_pkgdocdir}/README.md
 
 %changelog
+* Fri Jan 03 2020 Matěj Týč <matyc@redhat.com> - 1.2.0-4
+- Added asciidoc as build-time dependency for Packit.
+
 * Fri Jul 26 2019 Fedora Release Engineering <releng@fedoraproject.org> - 1.2.0-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
 
