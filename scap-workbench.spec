@@ -1,8 +1,8 @@
 %{!?_pkgdocdir: %global _pkgdocdir %{_docdir}/%{name}-%{version}}
 
 Name:       scap-workbench
-Version:    1.2.0
-Release:    4%{?dist}
+Version:    1.2.1
+Release:    1%{?dist}
 Summary:    Scanning, tailoring, editing and validation tool for SCAP content
 
 License:    GPLv3+
@@ -63,6 +63,9 @@ make install DESTDIR=%{buildroot}
 %doc %{_pkgdocdir}/README.md
 
 %changelog
+* Mon Jan 27 2020 Jan Černý <jcerny@redhat.com> - 1.2.1-1
+- Upgrade to the latest upstream release
+
 * Fri Jan 03 2020 Matěj Týč <matyc@redhat.com> - 1.2.0-4
 - Added asciidoc as build-time dependency for Packit.
 
