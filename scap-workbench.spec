@@ -1,8 +1,8 @@
 %{!?_pkgdocdir: %global _pkgdocdir %{_docdir}/%{name}-%{version}}
 
 Name:       scap-workbench
-Version:    1.2.0
-Release:    3%{?dist}
+Version:    1.2.1
+Release:    1%{?dist}
 Summary:    Scanning, tailoring, editing and validation tool for SCAP content
 
 License:    GPLv3+
@@ -61,6 +61,9 @@ make install DESTDIR=%{buildroot}
 %doc %{_pkgdocdir}/README.md
 
 %changelog
+* Mon Jan 27 2020 Jan Černý <jcerny@redhat.com> - 1.2.1-1
+- Upgrade to the latest upstream release
+
 * Fri Jul 26 2019 Fedora Release Engineering <releng@fedoraproject.org> - 1.2.0-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
 
