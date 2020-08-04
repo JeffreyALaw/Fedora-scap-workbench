@@ -2,15 +2,17 @@
 
 Name:       scap-workbench
 Version:    1.2.1
-Release:    4%{?dist}
+Release:    5%{?dist}
 Summary:    Scanning, tailoring, editing and validation tool for SCAP content
 
 License:    GPLv3+
 URL:        http://www.open-scap.org/tools/scap-workbench
 Source0:    https://github.com/OpenSCAP/scap-workbench/releases/download/%{version}/scap-workbench-%{version}.tar.bz2
+Patch1: scap-workbench-1.2.2-fix-qt-deprecated-pr-259.patch
 
 BuildRequires:  cmake >= 2.6
-BuildRequires:  qt5-devel >= 5.0.0
+BuildRequires:  qt5-qtbase-devel >= 5.0.0
+BuildRequires:  qt5-qtxmlpatterns-devel >= 5.0.0
 # Although releases usually contain compiled docs, builds from source via Packit need to generate those.
 BuildRequires:  asciidoc
 
@@ -37,13 +39,14 @@ content. The tool is based on OpenSCAP library.
 
 %prep
 %setup -q
+%patch1 -p1
 
 %build
-%cmake -D CMAKE_INSTALL_DOCDIR=%{_pkgdocdir} .
-make %{?_smp_mflags}
+%cmake
+%cmake_build
 
 %install
-make install DESTDIR=%{buildroot}
+%cmake_install
 
 %files
 %{_bindir}/scap-workbench
@@ -63,6 +66,14 @@ make install DESTDIR=%{buildroot}
 %doc %{_pkgdocdir}/README.md
 
 %changelog
+* Tue Aug 04 2020 Jan Černý <jcerny@redhat.com> - 1.2.1-5
+- Remove qt5-devel from "Requires" section
+  https://lists.fedoraproject.org/archives/list/devel@lists.fedoraproject.org/message/WO625MVYEAAJNHNRLEEJDVZTIWMQOBRR/
+- Update for new CMake out of source builds
+  https://fedoraproject.org/wiki/Changes/CMake_to_do_out-of-source_builds
+- Fix Qt5 deprecated symbols
+- Fix FTBS in Rawhide/F33 (RHBZ#1865462)
+
 * Sat Aug 01 2020 Fedora Release Engineering <releng@fedoraproject.org> - 1.2.1-4
 - Second attempt - Rebuilt for
   https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
