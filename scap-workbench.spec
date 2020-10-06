@@ -42,6 +42,7 @@ content. The tool is based on OpenSCAP library.
 %patch1 -p1
 
 %build
+export CXXFLAGS="-std=c++14 $RPM_OPT_FLAGS"
 %cmake
 %cmake_build
 
